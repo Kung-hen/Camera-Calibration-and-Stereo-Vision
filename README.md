@@ -1,7 +1,6 @@
 # OpenCV-Computer-Vision Practice third
 
 
-
 *Discription:*
 
 ***1.This is just a small project that we want to practice the camera calibration and stereo vision for 3D reconstruction.***
@@ -28,70 +27,76 @@
 
 * 1.1 Draw contour :
   
-    * Convert the RGB image [Build.jpg](Figures/Building.jpg) into a grayscale image, then smooth it by your own 3x3 Gaussian smoothing filter .
+    * Detection the RGB image [img1.jpg](Q1_Image/img1.jpg) contour.
       
-      ![image](Figures/Gaussian_result.png)
 * 1.2 Count rings :
   
-    * Use Sobel edge detection to detect vertical edge by your own 3x3 Sobel X operator.
-      
-      ![image](Figures/Sobel_X.png)
+    * Counting the image [img2.jpg](Q1_Image/img2.jpg) ring numbers.
 
 2.Camera calibration
 
 * 2.1 Find chessboard corners:
   
-   * From (430,430) to (215,215).
+   * Find and draw the corners on the chessboard for each image.
+   * Click button `2.1` to show each picture 0.5 seconds.
 
-![image](Figures/Microsoft.png)
+https://github.com/Kung-hen/Camera-Calibration-and-Stereo/assets/95673520/a324cea7-c4d6-47d5-8211-7f14880b1c67
 
 * 2.2 Find Intrinsic matrix:
   
-   * Xnew = Xold + 215 pixels = 108 + 215 = 323.
-   * Ynew = Yold + 215 pixels = 108 + 215 = 323.
-   * Point C (108, 108) is center of resized image.
-   * Point C’(323, 323) is new center of image. 
-
-![image](Figures/Translate.png)
+   * Find the intrinsic matrix.
+   * Click button `2.2` and then show the result on the console 
 
 * 2.3 Find Extrinsic matrix:
   
-   * Center: Center of Image.
-   * Angle = 45 $^{\circ}$ (counter-clockwise).
-   * Scale = 0.5.
-   * window size (430,430)
+   * From give Intrinsic parameters, distortion coefficients, and the list of 15 images.
+   * Find the extrinsic matrix of the chessboard for specfic of the 15 images, 
 
-![image](Figures/Rotate.png)
-  
 * 2.4 Find distortion:
   
-   * Old location: ([[50,50],[200,50],[50,200]])
-   * New location: ([[10,100],[100,50],[100,250]]) 
+   * Find the distortion matrix.
+   * Click button `2.4` to show the result on the console window.
 
-![image](Figures/Sharing.png)
 * 2.5 Processing result:
+   
+   * Undistort the chessboard images.
+   * Click button `2.5` to show distorted and undistorted images
 
+
+https://github.com/Kung-hen/Camera-Calibration-and-Stereo/assets/95673520/0e206824-81b7-4c71-9274-aeebaeb94fc8
 
 3.Augmented reality (AR)
 
 * 3.1 Show the word on board:
   
-   * From (430,430) to (215,215).
+   * Calibrate 5 images to get intrinsic, distortion and extrinsic parameters.
+   * Input a “Word” less than 6 char in English in the textEdit box.
+   * Derive the shape of the “Word” by using the provided library.
+   * Show the “Word” on the chessboards images(1.bmp to 5.bmp).
+   * Show the “Word” vertically on the chessboards images(1.bmp to 5.bmp).
+   * Click the button to show the “Word” on the picture. Show each picture for 1 second (total 5 images).
 
-![image](Figures/Microsoft.png)
+https://github.com/Kung-hen/Camera-Calibration-and-Stereo/assets/95673520/e90a1f40-5b44-49b4-9206-04159e2e50a7
 
 * 3.2 Show words vertically:
   
-   * From (430,430) to (215,215).
+   * Use OpenCV function to read and derive the array or matrix of the char.
+   * Here take "K" in "alphabet_lib_onboard.txt" for example.
+   * ‘K’ consist of 3 lines, so the "ch array" consists 3 pairs of 3D coordinates in Word Frame representing two ends of the line shown in the upper right image.
+   * The chessboard x, y, z axis and (0,0,0) coordinate are shown in the bottom left image.
+   * Each Char should be place in the order and position shown in the bottom right image.
 
-![image](Figures/Microsoft.png)
-
-
+https://github.com/Kung-hen/Camera-Calibration-and-Stereo/assets/95673520/ba3ec8ed-d9af-49cf-8de6-c27ca5d33dfa
 
 4.Stereo disparity map
+
 * 4.1 Show the map:
   
-   * From (430,430) to (215,215).
+   * Find the disparity map/image based on Left and Right stereo images.
+   * Click at left image and draw the corresponding dot at right image.
 
-![image](Figures/Microsoft.png)
+![image](4.1_disparity_map.png)
+
+https://github.com/Kung-hen/Camera-Calibration-and-Stereo/assets/95673520/fd924873-95b0-454a-bb28-f0c5c20ee1e0
+
 
